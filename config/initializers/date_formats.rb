@@ -1,0 +1,12 @@
+Date::DATE_FORMATS[:default] = "%m/%d/%y"
+Date::DATE_FORMATS[:long_reg] = "%m/%d/%Y"
+Date::DATE_FORMATS[:day_reg] = "%a, %m/%d/%y"
+Date::DATE_FORMATS[:short] = "%m/%y"
+Date::DATE_FORMATS[:no_year] = "%m/%d"
+
+Time::DATE_FORMATS[:default] = "%m/%d/%y"
+Time::DATE_FORMATS[:time] = "%I:%M %p"
+Time::DATE_FORMATS[:mini_timestamp] = "%a, %b %d %y - %I:%M %p"
+Time::DATE_FORMATS[:minier_timestamp] = "%a, %b %d : %I:%M %p"
+Time::DATE_FORMATS[:timestamp] = "%A, %b %d %Y - %I:%M %p"
+Time::DATE_FORMATS[:short_timestamp] = "%m/%d/%y %I:%M %p"

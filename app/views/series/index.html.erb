@@ -1,0 +1,59 @@
+<table style="width: 700px;">
+	<tr>
+		<th style="width: 200px;">&nbsp;</th>
+		<% for s in @company.series %>
+			<td><%= s.name %></td>
+		<% end %>
+		<td>Current Total</td>
+	</tr>
+	<tr>
+		<td>Summary</td>
+	</tr>
+	<tr>
+		<td>Investment</td>
+		<% for s in @company.series %>
+			<td style="width: 150px;"><%= nh(s.investment) %></td>
+		<% end %>
+	</tr>
+	<tr>
+		<td>Fully-Diluted Own %</td>
+		<% for s in @company.series %>
+			<td><%= ph(s.fully_diluted_ownership) %></td>
+		<% end %>
+	</tr>
+	<tr>
+		<td>Preferred Own %</td>
+	<% for s in @company.series %>
+		<td><%= ph(s.preferred_ownership) %></td>
+	<% end %>
+	</tr>
+</table>
+
+<table style="margin-top: 30px; width: 700px;">
+	<tr>
+		<td style="width: 200px;">Round Details</td>
+		<% for s in @company.series %>
+			<td style="width: 150px;">&nbsp;</td>
+		<% end %>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>Pre-Money</td>
+		<% for s in @company.series %>
+			<td style="width: 150px;"><%= nh(s.pre_money) %></td>
+		<% end %>
+	</tr>
+	<tr>
+		<td>Raise</td>
+		<% for s in @company.series %>
+			<td><%= nh(s.capital_raised) %></td>
+		<% end %>
+		<td><%= nh(@company.series.inject(0.0) { |sum, s| sum + s.capital_raised }) %></td>
+	</tr>
+	<tr>
+		<td>Post-Money</td>
+		<% for s in @company.series %>
+			<td><%= nh(s.post_money) %></td>
+		<% end %>
+	</tr>
+</table>

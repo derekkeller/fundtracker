@@ -1,0 +1,62 @@
+<h4>
+	<%= "#{@organization.name} | Total Funds: #{@funds.count}"%>
+</h4>
+<br />
+
+<table class="org_summary">
+	<tr>
+		<th>Fund</th>
+		<th>Total Companies</th>
+		<th>Total Size</th>
+		<th>Mgmt Fee <br />Estimate</th>
+		<th>Invested <br />to date</th>
+		<th>Reserves</th>
+		<th>Remaining Investible</th>
+		<th>As % of <br />Total Size</th>
+		<th>Close Date</th>
+	</tr>
+	<% @funds.each do |fund| %>
+	<tr>
+		<td><%= link_to "Fund #{fund.number}", admin_organization_fund_path(@organization, fund) %></td>
+		<td class="center"><%= fund.companies.size %></td>
+		<td class="right"><%= nh(fund.size) %></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<% end %>
+</table>
+
+<table class="org_summary top_space">
+	<th>All Companies</th>
+	<th>Owership %</th>
+	<th>Our Total<br />Investment</th>
+	<th>TTM Revenue</th>
+	<th>TTM Monthly<br />Rev Growth</th>
+	<th>Rev/Employee</th>
+	<th>Exp/Employee</th>
+	<th>Cash Runway</th>
+	<th>Fund</th>
+	<% @organization.companies.each do |c| %>
+		<tr>
+			<td><%= link_to c.name, admin_organization_fund_company_path(@organization, c.fund, c) %></td>
+			<td class="right"><%= ph(c.ownership_percentage) %></td>
+			<td class="right"><%= nh(c.investment_total) %></td>
+			<td class="right"><%= nh(c.ttm_revenue) %></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td class="right"><%= c.cash_runway %></td>
+			<td></td>
+		</tr>
+	<% end %>
+</table>
+
+<br />
+<div class='back_footer'>
+	<%= link_to 'Add Fund', new_admin_organization_fund_path(@organization,@fund) %> | 
+	<%= link_to 'Back', admin_organizations_path %>
+</div>

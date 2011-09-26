@@ -1,0 +1,29 @@
+<%= form.error_messages %>
+
+<p>
+  <%= form.label :period_end %><br />
+  <%= form.date_select :period_end, :order => [:month, :year], :include_blank => true %>
+</p>
+<p>
+  <%= form.label :head_count %><br />
+  <%= form.text_field :head_count, :size => 5 %>
+</p>
+
+<p>
+  <%= form.label :debt_balance %><br />
+  <%= form.text_field :debt_balance, :size => 15 %>
+</p>
+
+<p>
+  <%= form.label :cash_balance %><br />
+  <%= form.text_field :cash_balance, :size => 15 %>
+</p>
+
+<p>
+  <%= form.label :cash_burn %><br />
+  <%= form.text_field :cash_burn, :size => 10 %>
+</p>
+
+<p>
+	<%= form.submit :save %>
+</p>

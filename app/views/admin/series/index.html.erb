@@ -1,0 +1,19 @@
+<h1>Series for <%= @company %></h1>
+<% @breadcrumb_trail = raw("#{link_to(@company, edit_admin_fund_company_path(@company.fund,@company))} > Series") %>
+<table>
+	<tr>
+		<th class="left">Series</th>
+		<th class="left">Date</th>
+		<th class="right">Existing Capital Raised</th>
+		<th>&nbsp;</th>
+	</tr>
+	<% @company.series.each do |series| %>
+		<tr class="<%= cycle('even', 'odd') %>">
+			<td><%= series %></td>
+			<td><%= series.date.to_s(:reg) %></td>
+			<td class="right"><%= nh(series.existing_capital_raised) %></td>
+			<td class="center" style="width: 100px;"><%= link_to "edit", edit_admin_company_series_path(@company,series) %></td>
+		</tr>
+
+	<% end %>
+</table>

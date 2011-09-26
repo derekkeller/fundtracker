@@ -1,0 +1,228 @@
+<div id="summary_container">
+	<div id="company_summary_table">
+		<table id="three_year_summary">
+			<tr id="labels">
+				<th>&nbsp;</th>
+				<th class="right"><%= @year3.year %></th>
+				<th class="right"><%= @year2.year %></th>
+				<th class="right"><%= @year1.year %></th>
+			</tr>
+		
+			<tr class="odd">
+				<td>Bookings</td>
+				<td class="right"><%= nh(@year3.bookings, @precision) %></td>
+				<td class="right"><%= nh(@year2.bookings, @precision) %></td>
+				<td class="right"><%= nh(@year1.bookings, @precision) %></td>
+			</tr>
+			<tr>
+				<td>Revenue</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr class="even">
+				<td class="indent">Other Revenue</td>
+				<td class="right"><%= nh(@year3.revenue, @precision) %></td>
+				<td class="right"><%= nh(@year2.revenue, @precision) %></td>
+				<td class="right"><%= nh(@year1.revenue, @precision) %></td>
+			</tr>
+			<% @company.user_defined_categories.where(:c_type => 1).each do |udc| %>
+				
+					<tr class="odd">
+						<td class="indent"><%= udc.name %></td>
+						<td class="right"><%= nh(find_udc_item(udc, @year3.revenue_line_items).abs, @precision) %></td>
+						<td class="right"><%= nh(find_udc_item(udc, @year2.revenue_line_items).abs, @precision) %></td>
+						<td class="right"><%= nh(find_udc_item(udc, @year1.revenue_line_items).abs, @precision) %></td>
+					</tr>
+			
+			<% end %>
+			<tr class="odd">
+				<td>Total Revenue</td>
+				<td class="right"><%= nh(@year3.total_revenue, @precision) %></td>
+				<td class="right"><%= nh(@year2.total_revenue, @precision) %></td>
+				<td class="right"><%= nh(@year1.total_revenue, @precision) %></td>
+			</tr>
+			<tr>
+				<td>COGS</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr class="odd">
+				<td class="indent">Other COGS</td>
+				<td class="right"><%= nh(@year3.cogs, @precision) %></td>
+				<td class="right"><%= nh(@year2.cogs, @precision) %></td>
+				<td class="right"><%= nh(@year1.cogs, @precision) %></td>
+			</tr>
+			<% @company.user_defined_categories.where(:c_type => 2).each do |udc| %>
+				
+					<tr class="odd">
+						<td class="indent"><%= udc.name %></td>
+						<td class="right"><%= nh(find_udc_item(udc, @year3.cogs_line_items).abs, @precision) %></td>
+						<td class="right"><%= nh(find_udc_item(udc, @year2.cogs_line_items).abs, @precision) %></td>
+						<td class="right"><%= nh(find_udc_item(udc, @year1.cogs_line_items).abs, @precision) %></td>
+					</tr>
+			
+			<% end %>
+			<tr class="odd">
+				<td>Total COGS</td>
+				<td class="right"><%= nh(@year3.total_cogs, @precision) %></td>
+				<td class="right"><%= nh(@year2.total_cogs, @precision) %></td>
+				<td class="right"><%= nh(@year1.total_cogs, @precision) %></td>
+			</tr>
+			<tr class="even">
+				<td>Gross Profit</td>
+				<td class="right"><%= nh(@year3.gross_profit, @precision) %></td>
+				<td class="right"><%= nh(@year2.gross_profit, @precision) %></td>
+				<td class="right"><%= nh(@year1.gross_profit, @precision) %></td>
+			</tr>
+			<tr class="odd">
+				<td class="indent">Gross Margin</td>
+				<td class="right"><%= number_to_percentage(@year3.gross_margin, :precision => 1) %></td>
+				<td class="right"><%= number_to_percentage(@year2.gross_margin, :precision => 1) %></td>
+				<td class="right"><%= number_to_percentage(@year1.gross_margin, :precision => 1) %></td>
+			</tr>                                                                             
+			<tr class="even">
+				<td>Operating Expenses</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			
+			<tr class="even"> 
+				<td class="indent">SG&A</td>
+				<td class="right"><%= nh(@year3.sga, @precision) %></td>
+				<td class="right"><%= nh(@year2.sga, @precision) %></td>
+				<td class="right"><%= nh(@year1.sga, @precision) %></td>
+			</tr>
+			<tr class="odd">
+				<td class="indent">R&D</td>
+				<td class="right"><%= nh(@year3.r_and_d, @precision) %></td>
+				<td class="right"><%= nh(@year2.r_and_d, @precision) %></td>
+				<td class="right"><%= nh(@year1.r_and_d, @precision) %></td>
+			</tr>
+			<tr class="even">
+				<td class="indent">Other Operating Expenses</td>
+				<td class="right"><%= nh(@year3.operating_expenses, @precision) %></td>
+				<td class="right"><%= nh(@year2.operating_expenses, @precision) %></td>
+				<td class="right"><%= nh(@year1.operating_expenses, @precision) %></td>
+			</tr>
+			<% @company.user_defined_categories.where(:c_type => 3).each do |udc| %>
+				
+					<tr class="odd">
+						<td class="indent"><%= udc.name %></td>
+						<td class="right"><%= nh(find_udc_item(udc, @year3.expense_line_items).abs, @precision) %></td>
+						<td class="right"><%= nh(find_udc_item(udc, @year2.expense_line_items).abs, @precision) %></td>
+						<td class="right"><%= nh(find_udc_item(udc, @year1.expense_line_items).abs, @precision) %></td>
+					</tr>
+			
+			<% end %>
+			<tr class="even">
+				<td>Total Operating Expenses</td>
+				<td class="right"><%= nh(@year3.total_expense, @precision) %></td>
+				<td class="right"><%= nh(@year2.total_expense, @precision) %></td>
+				<td class="right"><%= nh(@year1.total_expense, @precision) %></td>
+			</tr>
+			<tr class="odd">
+				<td>Operating Profit</td>
+				<td class="right">
+					<%= nh(@year3.operating_profit, @precision) %>
+				</td>
+				<td class="right">
+					<%= nh(@year2.operating_profit, @precision) %>
+				</td>
+				<td class="right">
+					<%= nh(@year1.operating_profit, @precision) %>
+				</td>
+			</tr>
+			<tr class="even">
+				<td class="indent">Operating Margin</td>
+				<td class="right"><%= number_to_percentage(@year3.operating_margin, :precision => 1) %></td>
+				<td class="right"><%= number_to_percentage(@year2.operating_margin, :precision => 1) %></td>
+				<td class="right"><%= number_to_percentage(@year1.operating_margin, :precision => 1) %></td>
+			</tr>
+			<tr>
+				<td>Other Income/Expenses</td>
+			</tr>
+			<tr class="odd">
+				<td class="indent">Interest Income (expense)</td>
+				<td class="right"><%= nh(@year3.interest_income, @precision) %></td>
+				<td class="right"><%= nh(@year2.interest_income, @precision) %></td>
+				<td class="right"><%= nh(@year1.interest_income, @precision) %></td>
+			</tr>
+			<tr class="even">
+				<td class="indent">Other Income (expense)</td>
+				<td class="right"><%= nh(@year3.other_income, @precision) %></td>
+				<td class="right"><%= nh(@year2.other_income, @precision) %></td>
+				<td class="right"><%= nh(@year1.other_income, @precision) %></td>
+			</tr>
+			<tr class="odd">
+				<td class="indent">Tax Expense</td>
+				<td class="right"><%= nh(@year3.tax_expense, @precision) %></td>
+				<td class="right"><%= nh(@year2.tax_expense, @precision) %></td>
+				<td class="right"><%= nh(@year1.tax_expense, @precision) %></td>
+			</tr>
+			<% @company.user_defined_categories.where(:c_type => 4).each do |udc| %>
+				
+					<tr class="odd">
+						<td class="indent"><%= udc.name %></td>
+						<td class="right"><%= nh(find_udc_item(udc, @year3.misc_line_items).abs, @precision) %></td>
+						<td class="right"><%= nh(find_udc_item(udc, @year2.misc_line_items).abs, @precision) %></td>
+						<td class="right"><%= nh(find_udc_item(udc, @year1.misc_line_items).abs, @precision) %></td>
+					</tr>
+			
+			<% end %>
+			<tr class="even">
+				<td>Total Other</td>
+				<td class="right">
+					<%= nh(@year3.total_miscellaneous.abs, @precision) %>
+				</td>                                              
+				<td class="right">                                 
+					<%= nh(@year2.total_miscellaneous.abs, @precision) %>
+				</td>                                              
+				<td class="right">                                 
+					<%= nh(@year1.total_miscellaneous.abs, @precision) %>
+				</td>
+			</tr>
+			
+			<tr class="even">
+				<td>Net Income</td>
+				<td class="right">                    
+					<%= nh(@year3.net_income, @precision) %>
+				</td>                                 
+				<td class="right">                    
+					<%= nh(@year2.net_income, @precision) %>
+				</td>                                 
+				<td class="right">                    
+					<%= nh(@year1.net_income, @precision) %>
+				</td>
+			</tr>
+			<tr class="odd">
+				<td class="indent">Net Margin</td>
+				<td class="right"><%= number_to_percentage(@year3.net_margin, :precision => 1) %></td>
+				<td class="right"><%= number_to_percentage(@year2.net_margin, :precision => 1) %></td>
+				<td class="right"><%= number_to_percentage(@year1.net_margin, :precision => 1) %></td>
+			</tr>
+		</table>
+	</div>
+	<div id="company_summary_info">
+		<table>
+			<tr>
+				<td><strong>Founded</strong></td>
+				<td>&nbsp;</td>
+				<td><%= @company.founded.year %></td>
+			</tr>
+			<tr id="middle">
+				<td><strong>Summmary</strong></td>
+				<td>&nbsp;</td>
+				<td><%= @company.description %></td>
+			</tr>
+			<tr>
+				<td><strong>Employees</strong></td>
+				<td>&nbsp;</td>
+				<td><%= @company.current_head_count %></td>
+			</tr>
+		</table>
+	</div>
+</div>
+

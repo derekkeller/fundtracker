@@ -1,0 +1,9 @@
+<h2>Edit Organization</h2>
+
+<%= form_for @organization, :url => admin_organization_path do |f| -%>
+  <%= render 'form', :object => f %>
+<% end -%>
+
+<div class="back_footer">
+  <%= link_to 'Back', admin_organizations_path %>
+</div>

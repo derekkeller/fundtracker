@@ -1,0 +1,423 @@
+div.log_out_link {
+  right: 40px;
+  top: 5px;
+  position: absolute; }
+  div.log_out_link a {
+    color: #FFF;
+ 		font-size: .7em;}
+
+#logout_regular {
+  color: #333333; }
+
+.alert {
+  color: red; }
+
+.notice {
+  color: brown; }
+
+#log_in_container {
+  text-align: center;
+  width: 210px;
+  margin: 210px auto; }
+
+#log_in_body {
+  background: #E2E8EE url(/images/log_in_bg.png) repeat-x 0px 0px;
+  color: #6584A2;
+  font-family: verdana, geneva, sans-serif;
+  text-align: center; }
+  #log_in_body #email, #log_in_body #password {
+    width: 202px;
+    font-size: 18px;
+    padding: 2px; }
+  #log_in_body h2 {
+    color: #f6dfc6; }
+  #log_in_body img {
+    position: absolute;
+    top: 30px;
+    left: 25px; }
+
+#forgot_password {
+  text-align: right;
+  margin-top: -12px;
+  font-size: 0.8em; }
+  #forgot_password a {
+    color: #6584A2;
+    text-decoration: none; }
+
+#remember_me_p {
+  margin-top: -10px; }
+
+#password_p {
+  margin-top: -10px; }
+
+#application_body {
+  margin: 0px;
+  padding: 0px;
+  font-family: verdana, geneva, sans-serif; }
+
+#bread_crumb {
+  color: #fff;
+  background-color: #7C96B1;
+  height: 30px;
+  font-size: .8em;
+  padding: 0px 0px 0px 30px; }
+
+#bread_crumb_detail {
+  color: #fff;
+  background-color: #676767;
+  height: 16px;
+  font-size: 12px;
+  margin: 25px 2px 0px 2px;
+  padding: 3px 0px 0px 30px; }
+
+#nav {
+  margin: 5px 2px 0px 2px;
+  background-color: #003366;
+  height: 50px; }
+  #nav ul {
+    margin: 0px 0px 0px 30px;
+    padding: 0px; }
+  #nav li {
+    display: block;
+    float: left;
+    margin-left: 20px;
+    color: #6584A2;
+    position: relative;
+    bottom: -1em;
+    height: 25px;
+    padding: 10px 8px 3px 8px;
+    font-size: 0.75em;
+    border: 2px solid #6584A2; }
+  #nav li.active {
+    color: #FF9933;
+    background-color: #6584A2; }
+  #nav li a {
+    color: #C1C6BF;
+    text-decoration: none; }
+  #nav li.active a {
+    color: #FFF; }
+
+#sub_nav_filter {
+  background-color: #6584A2;
+  height: 30px;
+  margin: 0px 2px 0px 2px; }
+  #sub_nav_filter ul {
+    float: left;
+    padding: 0px;
+    margin: 0px 20px 0px 0px;
+    font-size: 0.7em; }
+  #sub_nav_filter li {
+    display: block;
+    float: left;
+    color: #FFF;
+    margin: 6px; }
+  #sub_nav_filter li a {
+    color: #FFF;
+    text-decoration: none; }
+
+
+#sub_nav {
+  background-color: #E2E8EE;
+  height: 30px;
+  margin: 0px 2px 0px 2px; }
+  #sub_nav ul {
+    float: left;
+    padding: 0px;
+    margin: 0px 20px 0px 0px;
+    font-size: 0.7em; }
+  #sub_nav li {
+    display: block;
+    float: left;
+    color: #666;
+    margin: 6px; }
+  #sub_nav li a {
+    color: #666;
+    text-decoration: none; }
+
+#deal_status {
+  border-bottom: 1px solid #999;
+  height: 30px; }
+  #deal_status ul {
+    float: right;
+    padding: 0px;
+    margin: 0px 20px 0px 0px;
+    font-size: 0.9em; }
+  #deal_status li {
+    display: block;
+    float: left;
+    color: #666;
+    margin: 6px; }
+
+#company_sub_nav {
+  background-color: #003366;
+  height: 30px;
+  margin: 0px 2px 0px 2px;
+  color: #FFF; }
+  #company_sub_nav ul {
+    float: right;
+    padding: 0px;
+    margin: 0px 20px 0px 0px;
+    color: #FFF;
+    font-size: 0.8em; }
+  #company_sub_nav li {
+    display: block;
+    float: left;
+    color: #FFF;
+    margin: 6px; }
+  #company_sub_nav li a {
+    color: #FFF;
+    text-decoration: none; }
+  #company_sub_nav #company_name {
+    float: left;
+    width: 50%;
+    margin: 6px 0px 0px 20px;
+    font-size: 0.8em; }
+
+#operationals_sub_nav_years ul, #period_results_sub_nav_years ul {
+  float: left;
+  padding: 0px;
+  margin: 0px 0px 0px 20px;
+  font-size: 0.75em; }
+#operationals_sub_nav_years li, #period_results_sub_nav_years li {
+  display: block;
+  float: left;
+  color: #000;
+  margin: 6px; }
+
+#operationals_sub_nav_type ul, #operationals_sub_nav_view_by ul, #period_results_sub_nav_type ul, #period_results_sub_nav_view_by ul {
+  float: right;
+  padding: 0px;
+  margin: 0px 20px 0px 0px;
+  font-size: 0.75em; }
+
+#operationals_sub_nav_type li, #operationals_sub_nav_view_by li, #period_results_sub_nav_view_by li, #period_results_sub_nav_type li {
+  display: block;
+  float: right;
+  color: #000;
+  margin: 6px; }
+
+#operationals_sub_nav_view_by a, #period_results_sub_nav_view_by a {
+  color: #000; }
+
+#fund_bread_crumb {
+  float: left;
+  margin: 7px 0px 0px 10px; }
+
+table {
+  width: 800px;
+  border-collapse: collapse; }
+
+td {
+  font-size: 75%; }
+
+th {
+  font-size: 80%; }
+
+tr.total_row {
+  background-color: #999; }
+
+.indent {
+  padding-left: 15px; }
+
+.even {
+  background-color: #EEE; }
+
+.odd {
+  background-color: #FFF; }
+
+.left {
+  text-align: left; }
+
+.center {
+  text-align: center; }
+
+.right {
+  text-align: right; }
+
+.bold {
+  font-weight: bold; }
+
+.column_width {
+/*	width: 300px;*/
+/*	padding: 20px;*/
+}
+
+hr.clear {
+  clear: both; }
+
+#content {
+  margin: 20px; }
+  #content input {
+    font-size: 10px;
+    padding: 2px; }
+  #content label {
+    font-size: 12px; }
+  #content p {
+    margin: 6px 0px 6px 0px; }
+  #content a {
+    color: #333;
+    text-decoration: none; }
+    #content a:hover {
+      color: #666; }
+
+h2 {
+  font-size: 16px; }
+
+.small_text {
+  font-size: 0.8em; }
+
+#edit_fund {
+  float: left;
+  width: 300px; }
+
+#edit_company {
+  float: left;
+  width: 500px; }
+
+#fund_companies, #company_series, #company_operationals, #company_period_results, #company_user_defined_categories {
+  float: left;
+  width: 400px;
+  border: 1px dashed #999;
+  padding: 10px;
+  margin: 30px 0px 0px 20px; }
+
+#fund_company_table, #company_operational_table, #company_period_results_table, #company_user_defined_categories_table {
+  width: 400px; }
+
+#detail_table {
+  width: 1200px;
+  font-size: 0.8em; }
+  #detail_table #header {
+    border-bottom: 1px solid black; }
+
+#company_summary_table {
+  width: 500px;
+  float: left; }
+  #company_summary_table table {
+    width: 580px; }
+    #company_summary_table table td {
+      padding-top: 7px;
+      padding-bottom: 7px; }
+    #company_summary_table table #labels {
+      border-bottom: 1px solid #999; }
+      #company_summary_table table #labels th {
+        padding: 10px 20px; }
+
+#company_summary_info {
+  width: 300px;
+  float: left;
+  margin-left: 300px; }
+  #company_summary_info table {
+    width: 300px; }
+    #company_summary_info table #middle {
+      border-top: 1px solid #999;
+      border-bottom: 1px solid #999; }
+    #company_summary_info table td {
+      padding: 20px 0px; }
+
+#summary_container {
+  border-top: 2px solid #999; }
+
+#company_summary_container {
+	position: relative;
+	width: 1000px;
+}
+
+#company_summary_box {
+	padding: 10px;
+	margin: 10px;
+	margin-left: 0px;
+	border: 1px solid #D8D8D8;
+	border-radius: 5px;
+	background: #EFEFEF;
+	width: 300px;
+	font-size: .75em;
+	float: left;}
+	#company_summary_box_title {
+		border-bottom: 1px solid #D8D8D8;
+		margin-bottom: 5px;
+		font-weight: bold;
+		float: left;
+		width: 100%;}
+	#company_summary_box_content_container {
+		margin-top: 10px;
+		float: left;
+		width: 100%;}
+		#company_summary_box_content_name {
+			float: left;}
+		#company_summary_box_content_value {
+			text-aling: right;
+			float: right;}
+			
+#company_summary_box_tall {
+	padding: 10px;
+	margin: 10px;
+	margin-left: 0px;
+	width: 300px;
+	font-size: .75em;
+	float: left;}
+	#company_summary_box_tall_title {
+		border-bottom: 1px solid #D8D8D8;
+		margin-bottom: 5px;
+		font-weight: bold;
+		float: left;
+		width: 100%;}
+	#company_summary_box_tall_content_container {
+		margin-top: 10px;
+		float: left;
+		width: 100%;}
+		#company_summary_box_tall_content_name {
+			width: 100px;
+			float: left;}
+		#company_summary_box_tall_content_value {
+			width: 180px;
+			text-aling: left;
+			float: right;}			
+
+#company_summary_box_wide {
+	padding: 10px;
+	margin: 10px;
+	margin-left: 0px;
+	border: 1px solid #D8D8D8;
+	border-radius: 5px;
+	background: #EFEFEF;
+	width: 600px;
+	font-size: .75em;
+	float: left;}
+	#company_summary_box_wide_title {
+		border-bottom: 1px solid #D8D8D8;
+		margin-bottom: 5px;
+		font-weight: bold;
+		float: left;
+		width: 100%;}
+	#company_summary_box_wide_content_container {
+		margin-top: 10px;
+		float: left;
+		width: 100%;}
+		#company_summary_box_wide_content_name {
+			width: 250px;
+			float: left;}
+		#company_summary_box_wide_content_value {
+			text-align: right;
+			width: 100px;
+			float: left;}
+			
+.back_footer {
+	font-size: .75em;
+	width: 100%;
+	float: left;
+	margin-top: 20px;
+	border-top: solid 1px #D8D8D8;	
+}
+
+table.org_summary {
+	width: 90%;
+}	
+	
+table.org_summary	th {
+		border-bottom: 1px solid #000;
+}
+
+.top_space {
+	margin-top: 40px;
+}

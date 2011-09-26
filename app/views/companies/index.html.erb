@@ -1,0 +1,100 @@
+<table id="detail_table">
+	<tr id="header">
+		<th class="left">Company</th>
+		<th class="right">Most Recent<br />Series</th>
+		<th class="right">Total H12<br />Investment</th>
+		<th class="right">Fully-Diluted<br />Own %</th>
+		<th class="right">Total<br />Raised</th>
+		<th class="right">Preferred<br />H12 Own %</th>
+		<th class="right">TTM<br />Revenue</th>
+		<th class="right">Gross<br />Margin</th>
+		<th class="right">Cash<br />Runway</th>
+		<th class="right">Headcount</th>
+	</tr>
+	<% for company in @companies %>
+		<tr class="<%= cycle('odd', 'even') %>">
+			<td>
+				<%= link_to company, company_path(company) %>
+			</td>
+			<td class="right">
+				<%= company.most_recent_series %>
+			</td>
+			<td class="right">
+				<%= nh(company.investment_total) %>
+			</td>
+			<td class="right">
+				<%= ph(company.series.first.try(:fully_diluted_ownership)) %>
+			</td>
+			<td class="right">
+				<%= nh(company.investment_total) %>
+			</td>
+			<td class="right">
+				<%= ph(company.series.first.try(:preferred_ownership)) %>
+			</td>
+			<td class="right">
+				<%= nh(company.ttm_revenue) %>
+			</td>
+			<td class="right">
+				<%= nh(company.period_results.first.try(:gross_margin)) %>
+			</td>
+			<td class="right">
+				<%= company.cash_runway %> Months
+			</td>
+			<td class="right">
+				<%= company.current_head_count %>
+			</td>
+		</tr>
+	<% end %>
+	<tr class="total_row">
+		<td>AVERAGE</td>
+		<td class="right">-</td>
+		<td class="right"><%= nh(@companies.inject(0.0) { |sum, c| sum += c.investment_total } / @companies.size) %></td>
+		<td class="right">
+			<%= ph(@companies.inject(0.0) { |sum, c| sum += c.series.try(:first).try(:fully_diluted_ownership) || 0.0 } / @companies.size) %>
+		</td>
+		<td class="right">
+			<%= nh(@companies.inject(0.0) { |sum, c| sum += c.investment_total }) %>
+		</td>
+		<td class="right">
+			<%= ph(@companies.inject(0.0) { |sum, c| sum += c.series.try(:first).try(:preferred_ownership) || 0.0} / @companies.size) %>
+		</td>
+		<td class="right"><%= nh(@companies.inject(0.0) { |sum, c| sum += c.ttm_revenue } / @companies.size) %></td>
+		<td class="right">
+			<nh(@companies.inject(0.0) { |sum, c| sum += c.period_results.first.try(:gross_margin) } / @companies.size) >
+		</td>
+		<td class="right">
+			<%= nh(@companies.inject(0.0) { |sum, c| sum += c.cash_runway } / @companies.size) %> Months
+		</td>
+		<td class="right">
+			<%= nh(@companies.inject(0.0) { |sum, c| sum += c.current_head_count } / @companies.size) %>
+		</td>
+	</tr>
+	<tr class="total_row">
+		<td>MEDIAN</td>
+		<td class="right">-</td>
+		<td class="right">
+			<%= nh(@companies.map { |c| c.investment_total }.median) %>
+		</td>
+		<td class="right">
+			<%= ph(@companies.map { |c| c.series.try(:first).try(:fully_diluted_ownership) || 0.0 }.median) %>
+		</td>
+		<td class="right">
+			<%= nh(@companies.map { |c| c.investment_total }.median) %>
+		</td>
+		<td class="right">
+			<%= ph(@companies.map { |c| c.series.try(:first).try(:preferred_ownership) || 0.0 }.median) %>
+		</td>
+		<td class="right">
+			<%= nh(@companies.map { |c| c.ttm_revenue }.median) %>
+		</td>
+		<td class="right">
+			< nh(@companies.map { |c| c.period_results.first.try(:gross_margin) }.median) >
+		</td>
+		<td class="right">
+			<%= nh(@companies.map { |c| c.cash_runway }.median) %> Months
+		</td>
+		<td class="right">
+			<%= nh(@companies.map { |c| c.current_head_count }.median) %>
+		</td>
+	</tr>
+</table>

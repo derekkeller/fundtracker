@@ -1,0 +1,2 @@
+class CustomCellsController < ApplicationController
+end

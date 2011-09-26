@@ -1,0 +1,68 @@
+<%= form.error_messages %>
+<p>
+  <%= form.label :name %><br />
+  <%= form.text_field :name %>
+</p>
+<p>
+  <%= form.label :existing_capital_raised %><br />
+  <%= form.text_field :existing_capital_raised %>
+</p>
+<p>
+  <%= form.label :investment, "Investment Amount" %><br />
+  <%= form.text_field :investment %>
+</p>
+<p>
+  <%= form.label :date %><br />
+  <%= form.date_select :date, :order => [:month, :day, :year] %>
+</p>
+<p>
+  <%= form.label :pre_money %><br />
+  <%= form.text_field :pre_money %>
+</p>
+<p>
+  <%= form.label :capital_raised %><br />
+  <%= form.text_field :capital_raised %>
+</p>
+<p>
+  <%= form.label :post_money %><br />
+  <%= form.text_field :post_money %>
+</p>
+<p>
+  <%= form.label :security_type %><br />
+  <%= form.text_field :security_type %>
+</p>
+<p>
+  <%= form.label :share_price %><br />
+  <%= form.text_field :share_price %>
+</p>
+<p>
+  <%= form.label :liquidation_preference %><br />
+  <%= form.text_field :liquidation_preference %>
+</p>
+<p>
+  <%= form.label :liquidation_preference_cap %><br />
+  <%= form.text_field :liquidation_preference_cap %>
+</p>
+<p>
+  <%= form.label :dividends %><br />
+  <%= form.text_field :dividends %>
+</p>
+<p>
+  <%= form.label :dividends_period %><br />
+  <%= form.text_field :dividends_period %>
+</p>
+<p>
+  <%= form.label :shares_purchased %><br />
+  <%= form.text_field :shares_purchased %>
+</p>
+<p>
+  <%= form.label :preferred_ownership %><br />
+  <%= form.text_field :preferred_ownership %>
+</p>
+<p>
+  <%= form.label :fully_diluted_ownership %><br />
+  <%= form.text_field :fully_diluted_ownership %>
+</p>
+<p>
+	<%= form.submit :save %>
+</p>

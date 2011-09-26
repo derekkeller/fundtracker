@@ -1,0 +1,68 @@
+<!-- 
+<div id="company_summary_container">
+
+	<div id="company_summary_box">
+		<div id="company_summary_box_title"><%= "#{@organization.name} | #{@fund.name}" %></div>
+		<div id="company_summary_box_content_container">
+			<div id="company_summary_box_content_name">Fund</div>	
+			<div id="company_summary_box_content_value"><%= @fund.number %></div>
+		</div>
+		<div id="company_summary_box_content_container">
+			<div id="company_summary_box_content_name">Fund Name</div>	
+			<div id="company_summary_box_content_value"><%= @fund.name %></div>
+		</div>
+		<div id="company_summary_box_content_container">
+			<div id="company_summary_box_content_name">Start Date</div>	
+			<div id="company_summary_box_content_value"><%= @fund.start_date %></div>
+		</div>		
+		<div id="company_summary_box_content_container">
+			<div id="company_summary_box_content_name">Size</div>	
+			<div id="company_summary_box_content_value"><%= @fund.size %></div>
+		</div>
+		<div id="company_summary_box_content_container">
+			<div id="company_summary_box_content_name"></div>	
+			<div id="company_summary_box_content_value"><%= link_to 'Edit', edit_admin_organization_fund_path(@organization, @fund) %></div>
+		</div>
+	</div>
+</div>
+-->
+<div style="width: 1000px;margin-bottom: 10px;">
+	<div id="" style="float: left; width: 500px;">
+		<%= @fund %>
+	</div>
+	<div id="" style="float: right: width: 500px; text-align: right;">
+		<%= link_to "View/Edit Fund Details", edit_admin_organization_fund_path(@organization, @fund) %>
+	</div>
+	
+</div>
+
+<table style="width:1000px">
+	<tr class="left" style="border-bottom:1px solid; border-top: 1px solid #000;">
+		<th class="column_width">Company</th>
+		<th class="column_width">Ownership %</th>
+		<th class="column_width">Our Total Investment</th>
+		<th class="column_width">TTM Revenue</th>
+		<th class="column_width">TTM Monthly<br />Rev Growth</th>
+		<th class="column_width">Rev/Employee</th>
+		<th class="column_width">Exp/Employee</th>
+		<th class="column_width">Cash Runway</th>
+	</tr>
+	<% @fund.companies.each do |company| %>
+	<tr class="<%= cycle('odd','even') %>">
+		<td><%= link_to company.name, admin_organization_fund_company_path(@organization, @fund, company) %></td>
+		<td class="right"><%= company.ownership_percentage %></td>
+		<td class="right"><%= company.investment_total %></td>
+		<td class="right"><%= nh(company.ttm_revenue) %></td>
+		<td><%= %></td>
+		<td><%= %></td>
+		<td><%= %></td>
+		<td class="center"><%= company.cash_runway %></td>
+	</tr>
+	<% end %>
+</table>
+
+<br />
+<div class='back_footer'>
+	<%= link_to 'Add Company', new_admin_organization_fund_company_path(@organization, @fund) %> |
+	<%= link_to 'Back', admin_organization_path(@organization) %>
+</div>

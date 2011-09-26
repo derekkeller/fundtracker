@@ -1,0 +1,8 @@
+<%= form_for @fund, :url => admin_organization_funds_path do |f| -%>
+	<%= render :partial => 'form', :object => f %>
+<% end -%>
+
+<br />
+<div class='back_footer'>
+	<%= link_to 'Back', admin_organization_path(@organization) %>
+</div>

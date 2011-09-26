@@ -1,0 +1,5 @@
+<% if @view_type == 'sales' %>
+	<%= render :partial => 'percentage_table' %>
+<% else %>
+  <%= render :partial => 'regular_table' %>
+<% end %>

@@ -1,0 +1,32 @@
+<div id="operationals_sub_nav_years">
+	<ul>
+		<% for year in @years %>
+			<li><%= year %></li>
+		<% end %>
+	</ul>
+</div>
+<div id="operationals_sub_nav_type">
+	<ul>
+		<li class="<%= check_view_type(session[:view_type], 'sales') %>">% Sales</li>
+		<li class="<%= check_view_type(session[:view_type], 'growth') %>">Growth</li>
+		<li class="<%= check_view_type(session[:view_type], 'variance') %>">Variance</li>					
+		<li class="<%= check_view_type(session[:view_type], 'forecast') %>">Forecast</li>
+		<li class="<%= check_view_type(session[:view_type], 'actual') %>">Actual</li>
+	</ul>
+</div>
+<hr class="clear"/>
+<div id="operationals_sub_nav_view_by">
+	<ul>
+		<li class="<%= check_view_by(session[:view_by], 'year') %>">
+			<%= link_to 'Year', operational_change_period_path(1, :company_id => @company.id), :method => 'put' %>
+		</li>
+		<li class="<%= check_view_by(session[:view_by], 'quarter') %>">
+			<%= link_to 'Quarter', operational_change_period_path(2, :company_id => @company.id), :method => 'put' %>
+		</li>
+		<li class="<%= check_view_by(session[:view_by], 'month') %>">
+			<%= link_to 'Month', operational_change_period_path(3, :company_id => @company.id), :method => 'put' %>
+		</li>
+		<li>View by:</li>
+	</ul>
+</div>
+<hr class="clear"/>

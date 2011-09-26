@@ -1,0 +1,48 @@
+<div id="edit_fund">
+	<%= form_for @fund, :url => admin_organization_fund_path(@organization, @fund) do |form| -%>
+		<%= form.error_messages %>
+		<p>
+			Total Companies: 
+			<%= @fund.companies.size %>
+		</p>
+		<p> 
+		  <%= form.label :size %><br />
+		  <%= form.text_field :size, :size => 14 %>
+		</p>
+		<p> 
+		  <%= form.label :management_fee %><br />
+		  <%= form.text_field :management_fee, :size => 12 %>
+		</p>
+		<p>
+			<label>Invested to Date</label><br />
+			<%= nh(@fund.invested_to_date) %>
+		</p>
+		<p>
+			<label>Reserves</label><br />
+			<%= nh(@fund.reserves) %>
+		</p>
+		<p>
+			<label>Investible Capital</label><br />
+			<%= nh(@fund.investible_capital) %>
+		</p>
+		
+		<p>
+		  <%= form.label :start_date, 'Final Close Date' %><br />
+		  <%= form.date_select :start_date, :order => [:month, :day, :year] %>
+		</p>
+		
+		<p>
+			<%= form.label :comments %>
+			<%= form.text_area :comments, :size => '60x10' %>
+		</p>
+		
+		<p> 
+			<%= form.submit 'Save' %>
+		</p>
+	<% end -%>
+</div>
+
+<br />
+<div class='back_footer'>
+	<%= link_to 'Back', admin_organization_fund_path(@organization, @fund) %>
+</div>

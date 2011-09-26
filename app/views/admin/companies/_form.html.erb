@@ -1,0 +1,69 @@
+<%= form.error_messages %>
+<p>
+  <%= form.label :name %><br />
+  <%= form.text_field :name %>
+</p>
+<p>
+  <%= form.label :founded %><br />
+  <%= form.date_select :founded, :order => [:month, :day, :year] %>
+</p>
+<p>
+  <%= form.label :industry_id %><br />
+  <%= form.select :industry_id, [['technology', 1]], :include_blank => true %>
+</p>
+<p>
+  <%= form.label :description %><br />
+  <%= form.text_area :description, :size => '60x5' %>
+</p>
+<p>
+  <%= form.label :reserves %><br />
+  <%= form.text_field :reserves %>
+</p>
+<p>
+  <%= form.label :syndicate %><br />
+  <%= form.text_area :syndicate, :size => '60x5' %>
+</p>
+<p>
+  <%= form.label :status_id %><br />
+  <%= form.select :status_id, Company::STATUS.invert.to_a.sort, {:include_blank => true}, :onchange => "exit_date(this)" %>
+</p>
+
+<div style="display: none;" id="exit_date_p">
+	<p>
+	  <%= form.label :status_date, "Exit date" %><br />
+	  <%= form.date_select :status_date, :order => [:month, :day, :year], :include_blank => true %>
+	</p>
+	<p>
+	  <%= form.label :exit_amount %><br />
+	  <%= form.text_field :exit_amount %>
+	</p>
+</div>
+
+<p>
+  <%= form.label :fund_return %><br />
+  <%= form.text_field :fund_return %>
+</p>
+<p>
+  <%= form.label :notes %><br />
+  <%= form.text_area :notes, :size => '60x6' %>
+</p>
+<p>
+  <%= form.label :active %><br />
+  <%= form.check_box :active %>
+</p>
+<p>
+	<%= form.submit :save %>
+</p>
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function () {
+		exit_date($('#company_status_id').get(0));
+	});
+	
+	function exit_date(select) {
+		if (select.value == 1 || select.value == '') {
+			$('#exit_date_p').hide();
+		} else {
+			$('#exit_date_p').show();
+		};
+	}
+</script>

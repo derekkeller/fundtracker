@@ -1,0 +1,11 @@
+<h1>Operational data for <%= @company %></h1>
+<% @breadcrumb_trail = raw("#{link_to(@company, edit_admin_fund_company_path(@company.fund,@company))} > Operational data") %>
+	
+	<table id="company_operational_table">
+		<% @company.operationals.each do |op| %>
+			<tr class="<%= cycle('even', 'odd') %>">
+				<td><%= op %></td>
+				<td><%= link_to "edit", edit_admin_company_operational_path(@company,op) %></td>
+			</tr>
+		<% end %>
+	</table>

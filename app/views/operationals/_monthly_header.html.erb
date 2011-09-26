@@ -1,0 +1,19 @@
+<tr>
+	<td style="width: 30px;">
+		<%= link_to '<<', company_operational_move_through_time_path(@company, 0, :major => 1) %>
+	</td>
+	<td style="width: 95px;">
+		<%= link_to '<', company_operational_move_through_time_path(@company, 0) %>
+	</td>
+	<% @operational_summary.period_set.each do |ps| %>
+		<td class="right">
+			<%= ps.label[0].strftime("%b %y") %>
+		</td>
+	<% end -%>
+	<td style="width: 45px;" class="right">
+		<%= link_to '>', company_operational_move_through_time_path(@company, 1) %>
+	</td>
+	<td style="width: 30px;" class="right">
+		<%= link_to '>>', company_operational_move_through_time_path(@company, 1, :major => 1) %>
+	</td>
+</tr>

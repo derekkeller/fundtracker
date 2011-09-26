@@ -1,0 +1,26 @@
+<div id="log_in_form_container">
+	<%= form_tag 'auth' do %>
+		<p class="left">
+			<%= label_tag :email %><br />
+			<%= text_field_tag :email, params[:email], :tabindex => 1 %>
+			<div id="forgot_password">
+				<%= link_to "forgot password", forgot_password_form_path %>
+			</div>
+		</p>
+		<p class="left" id="password_p">
+			<%= label_tag :password %><br />
+			<%= password_field_tag :password, nil, :tabindex => 2 %>
+		</p>
+		<p class="left" id="remember_me_p">
+			<%= check_box_tag :remember_me %> <span class="small_text">Remember me.</span>
+		</p>
+		<p class="left">
+			<%= submit_tag 'Log In' %>
+		</p>
+		
+	<% end %>
+</div>
+	
+<script type="text/javascript" charset="utf-8">
+	$("#email").focus();
+</script>

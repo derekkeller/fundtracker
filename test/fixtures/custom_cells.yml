@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  period_id: 1
+  user_defined_category_id: 1
+  amount: 1
+
+two:
+  period_id: 1
+  user_defined_category_id: 1
+  amount: 1

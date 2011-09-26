@@ -1,0 +1,59 @@
+(in /Users/jkay/Dropbox/fund_tracker)
+                    log_in GET    /log_in(.:format)                                      {:action=>"new", :controller=>"auth"}
+                   log_out GET    /log_out(.:format)                                     {:action=>"destroy", :controller=>"auth"}
+      forgot_password_form GET    /forgot_password(.:format)                             {:action=>"forgot_password_form", :controller=>"auth"}
+         password_recovery POST   /password_recovery(.:format)                           {:action=>"set_password_recovery_hash", :controller=>"auth"}
+       reset_password_form GET    /reset_password_form/:user_id/:recovery_hash(.:format) {:action=>"reset_password_form", :controller=>"auth"}
+            reset_password PUT    /reset_password(.:format)                              {:action=>"reset_password", :controller=>"auth"}
+                      root        /(.:format)                                            {:action=>"new", :controller=>"users"}
+                     users GET    /users(.:format)                                       {:action=>"index", :controller=>"users"}
+                           POST   /users(.:format)                                       {:action=>"create", :controller=>"users"}
+                  new_user GET    /users/new(.:format)                                   {:action=>"new", :controller=>"users"}
+                 edit_user GET    /users/:id/edit(.:format)                              {:action=>"edit", :controller=>"users"}
+                      user GET    /users/:id(.:format)                                   {:action=>"show", :controller=>"users"}
+                           PUT    /users/:id(.:format)                                   {:action=>"update", :controller=>"users"}
+                           DELETE /users/:id(.:format)                                   {:action=>"destroy", :controller=>"users"}
+                auth_index GET    /auth(.:format)                                        {:action=>"index", :controller=>"auth"}
+                           POST   /auth(.:format)                                        {:action=>"create", :controller=>"auth"}
+                  new_auth GET    /auth/new(.:format)                                    {:action=>"new", :controller=>"auth"}
+                 edit_auth GET    /auth/:id/edit(.:format)                               {:action=>"edit", :controller=>"auth"}
+                      auth GET    /auth/:id(.:format)                                    {:action=>"show", :controller=>"auth"}
+                           PUT    /auth/:id(.:format)                                    {:action=>"update", :controller=>"auth"}
+                           DELETE /auth/:id(.:format)                                    {:action=>"destroy", :controller=>"auth"}
+      admin_fund_companies GET    /admin/funds/:fund_id/companies(.:format)              {:action=>"index", :controller=>"admin/companies"}
+                           POST   /admin/funds/:fund_id/companies(.:format)              {:action=>"create", :controller=>"admin/companies"}
+    new_admin_fund_company GET    /admin/funds/:fund_id/companies/new(.:format)          {:action=>"new", :controller=>"admin/companies"}
+   edit_admin_fund_company GET    /admin/funds/:fund_id/companies/:id/edit(.:format)     {:action=>"edit", :controller=>"admin/companies"}
+        admin_fund_company GET    /admin/funds/:fund_id/companies/:id(.:format)          {:action=>"show", :controller=>"admin/companies"}
+                           PUT    /admin/funds/:fund_id/companies/:id(.:format)          {:action=>"update", :controller=>"admin/companies"}
+                           DELETE /admin/funds/:fund_id/companies/:id(.:format)          {:action=>"destroy", :controller=>"admin/companies"}
+               admin_funds GET    /admin/funds(.:format)                                 {:action=>"index", :controller=>"admin/funds"}
+                           POST   /admin/funds(.:format)                                 {:action=>"create", :controller=>"admin/funds"}
+            new_admin_fund GET    /admin/funds/new(.:format)                             {:action=>"new", :controller=>"admin/funds"}
+           edit_admin_fund GET    /admin/funds/:id/edit(.:format)                        {:action=>"edit", :controller=>"admin/funds"}
+                admin_fund GET    /admin/funds/:id(.:format)                             {:action=>"show", :controller=>"admin/funds"}
+                           PUT    /admin/funds/:id(.:format)                             {:action=>"update", :controller=>"admin/funds"}
+                           DELETE /admin/funds/:id(.:format)                             {:action=>"destroy", :controller=>"admin/funds"}
+admin_company_series_index GET    /admin/companies/:company_id/series(.:format)          {:action=>"index", :controller=>"admin/series"}
+                           POST   /admin/companies/:company_id/series(.:format)          {:action=>"create", :controller=>"admin/series"}
+  new_admin_company_series GET    /admin/companies/:company_id/series/new(.:format)      {:action=>"new", :controller=>"admin/series"}
+ edit_admin_company_series GET    /admin/companies/:company_id/series/:id/edit(.:format) {:action=>"edit", :controller=>"admin/series"}
+      admin_company_series GET    /admin/companies/:company_id/series/:id(.:format)      {:action=>"show", :controller=>"admin/series"}
+                           PUT    /admin/companies/:company_id/series/:id(.:format)      {:action=>"update", :controller=>"admin/series"}
+                           DELETE /admin/companies/:company_id/series/:id(.:format)      {:action=>"destroy", :controller=>"admin/series"}
+           admin_companies GET    /admin/companies(.:format)                             {:action=>"index", :controller=>"admin/companies"}
+                           POST   /admin/companies(.:format)                             {:action=>"create", :controller=>"admin/companies"}
+         new_admin_company GET    /admin/companies/new(.:format)                         {:action=>"new", :controller=>"admin/companies"}
+        edit_admin_company GET    /admin/companies/:id/edit(.:format)                    {:action=>"edit", :controller=>"admin/companies"}
+             admin_company GET    /admin/companies/:id(.:format)                         {:action=>"show", :controller=>"admin/companies"}
+                           PUT    /admin/companies/:id(.:format)                         {:action=>"update", :controller=>"admin/companies"}
+                           DELETE /admin/companies/:id(.:format)                         {:action=>"destroy", :controller=>"admin/companies"}
+   admin_user_edit_profile GET    /admin/users/:user_id/edit_profile(.:format)           {:action=>"edit_profile", :controller=>"admin/users"}
+ admin_user_update_profile PUT    /admin/users/:user_id/update_profile(.:format)         {:action=>"update_profile", :controller=>"admin/users"}
+               admin_users GET    /admin/users(.:format)                                 {:action=>"index", :controller=>"admin/users"}
+                           POST   /admin/users(.:format)                                 {:action=>"create", :controller=>"admin/users"}
+            new_admin_user GET    /admin/users/new(.:format)                             {:action=>"new", :controller=>"admin/users"}
+           edit_admin_user GET    /admin/users/:id/edit(.:format)                        {:action=>"edit", :controller=>"admin/users"}
+                admin_user GET    /admin/users/:id(.:format)                             {:action=>"show", :controller=>"admin/users"}
+                           PUT    /admin/users/:id(.:format)                             {:action=>"update", :controller=>"admin/users"}
+                           DELETE /admin/users/:id(.:format)                             {:action=>"destroy", :controller=>"admin/users"}

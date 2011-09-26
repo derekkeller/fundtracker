@@ -1,0 +1,12 @@
+<h1>User Defined Categories for <%= @company %></h1>
+<% @breadcrumb_trail = raw("#{link_to(@company, edit_admin_fund_company_path(@company.fund,@company))} > User defined categories") %>
+
+<table id="company_user_defined_categories_table">
+	<% @company.user_defined_categories.each do |c| %>
+		<tr class="<%= cycle('even', 'odd') %>">
+			<td><%= c %></td>
+			<td><%= c.category_type %></td>
+			<td><%= link_to "edit", edit_admin_company_user_defined_category_path(@company, c) %></td>
+		</tr>
+	<% end %>
+</table>

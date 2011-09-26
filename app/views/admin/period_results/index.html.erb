@@ -1,0 +1,11 @@
+<h1>Financial data for <%= @company %></h1>
+<% @breadcrumb_trail = raw("#{link_to(@company, edit_admin_fund_company_path(@company.fund,@company))} > Financial data") %>
+
+<table id="company_period_results_table">
+	<% @company.period_results.each do |p| %>
+		<tr class="<%= cycle('even', 'odd') %>">
+			<td><%= p %></td>
+			<td><%= link_to "edit", edit_admin_company_period_result_path(@company, p) %></td>
+		</tr>
+	<% end %>
+</table>

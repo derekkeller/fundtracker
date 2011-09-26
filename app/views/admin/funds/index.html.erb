@@ -1,0 +1,20 @@
+<table>
+	<tr>
+		<th class="left">Fund</th>
+		<th>Size</th>
+		<th>&nbsp;</th>
+	</tr>
+	<% @funds.each do |f| %>
+		<tr class="<%= cycle('even', 'odd') %>">
+			<td>
+				<%= f %>
+			</td>
+			<td class="center">
+				<%= number_to_currency(f.size, :precision => 0) %>
+			</td>
+			<td>
+				<%= link_to 'edit', edit_admin_organization_fund_path(@organization,f.id) %>
+			</td>
+		</tr>
+	<% end %>
+</table>

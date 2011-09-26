@@ -1,0 +1,32 @@
+<table>
+	<tr>
+		<th class="left">User</th>
+		<th>Email</th>
+		<th class="left">Fund</th>
+		<th>Role</th>
+		<th>Active</th>
+		<th>&nbsp;</th>
+	</tr>
+	<% @users.each do |u| %>
+		<tr class="<%= cycle('even', 'odd') %>">
+			<td>
+				<%= u %>
+			</td>
+			<td>
+				<%= u.email %>
+			</td>
+			<td>
+				<%= u.fund %>
+			</td>
+			<td class="center">
+				<%= raw u.show_role %>
+			</td>
+			<td class="center">
+				<%= boolean_icon(u.active) %>
+			</td>
+			<td>
+				<%= link_to 'edit', edit_admin_user_path(u.id) %>
+			</td>
+		</tr>
+	<% end %>
+</table>

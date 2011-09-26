@@ -1,0 +1,38 @@
+<%= form_for @user, :url => admin_user_path(@user) do |form| -%>
+	<%= form.error_messages %>
+
+	<p>
+	  <%= form.label :email %><br />
+	  <%= form.text_field :email, :size => 45 %>
+	</p>
+
+	<p>
+	  <%= form.label :first_name %><br />
+	  <%= form.text_field :first_name %>
+	</p>
+
+	<p>
+	  <%= form.label :last_name %><br />
+	  <%= form.text_field :last_name %>
+	</p>
+	
+	<% unless @user.is_admin? %>
+		<p>
+		  <%= form.label :fund_id %><br />
+		  <%= form.select :fund_id, Fund.options_for_select, :include_blank => true %>
+		</p>
+		<p>
+		  <%= form.label :role_id %><br />
+		  <%= form.select :role_id, User::ROLES.invert.to_a.sort, :include_blank => true %>
+		</p>
+	<% end %>
+
+	<p>
+	  <%= form.label :active %><br />
+	  <%= form.check_box :active %>
+	</p>
+
+	<p>
+		<%= form.submit 'Save' %>
+	</p>
+<% end -%>

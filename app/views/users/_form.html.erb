@@ -1,0 +1,55 @@
+<%= form.error_messages %>
+
+<p>
+  <%= form.label :email %><br />
+  <%= form.text_field :email, :size => 45 %>
+</p>
+
+<p>
+  <%= form.label :first_name %><br />
+  <%= form.text_field :first_name %>
+</p>
+
+<p>
+  <%= form.label :last_name %><br />
+  <%= form.text_field :last_name %>
+</p>
+<p>
+  <%= form.label :role_id %><br />
+  <%= form.select :role_id, User::ROLES.invert.to_a.sort, {:include_blank => true}, :onchange => "show_fields(this)" %>
+</p>
+<p id="company_id_p" style="display: none;">
+  <%= form.label :company_id %><br />
+  <%= form.select :company_id, Company.options_for_select, :include_blank => true %>
+</p>
+<p id="fund_id_p" style="display: none;">
+  <%= form.label :fund_id %><br />
+  <%= form.select :fund_id, Fund.options_for_select, :include_blank => true %>
+</p>
+<p>
+  <%= form.label :active %><br />
+  <%= form.check_box :active %>
+</p>
+
+<p>
+	<%= form.submit 'Save' %>
+</p>
+
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function () {
+		show_fields($("#user_role_id").get(0));
+	});
+
+	function show_fields(select) {
+		if (select.value == 1 || select.value == 2) {
+			$("#company_id_p").hide();
+			$("#fund_id_p").show();
+		} else if (select.value == 3) {
+			$("#company_id_p").show();
+			$("#fund_id_p").hide();
+		} else if (select.value == '') {
+			$("#company_id_p").hide();
+			$("#fund_id_p").hide();
+		};
+	}
+</script>

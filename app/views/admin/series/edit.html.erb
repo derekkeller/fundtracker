@@ -1,0 +1,4 @@
+<% @breadcrumb_trail = raw("#{link_to(@series.company.fund, edit_admin_fund_path(@series.company.fund))} > #{link_to(@series.company, edit_admin_company_path(@series.company))} > Editing #{@series}") %>
+<%= form_for @series, :url => admin_company_series_path do |f| -%>
+	<%= render :partial => 'form', :object => f %>
+<% end -%>

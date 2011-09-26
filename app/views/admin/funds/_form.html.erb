@@ -1,0 +1,32 @@
+<%= form.error_messages %>
+ <p>
+ 	<%= form.label :name %><br />
+	<%= form.text_field :name %>
+ </p>
+<p>
+  <%= form.label :number %><br />
+  <%= form.text_field :number, :size => 5 %>
+</p>
+<p>
+  <%= form.label :start_date %><br />
+  <%= form.date_select :start_date, :order => [:month, :day, :year] %>
+</p>
+<p>    
+  <%= form.label :aggregate %><br />
+  <%= form.check_box :aggregate %>
+</p>
+<p> 
+  <%= form.label :size %><br />
+  <%= form.text_field :size, :size => 14 %>
+</p>
+<p> 
+  <%= form.label :management_fee %><br />
+  <%= form.text_field :management_fee, :size => 12 %>
+</p>
+<p> 
+  <%= form.label :active %><br />
+  <%= form.check_box :active %>
+</p>
+<p> 
+	<%= form.submit 'Save' %>
+</p>

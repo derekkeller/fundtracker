@@ -1,0 +1,161 @@
+<table>
+	<%= render @header_row_partial %>
+	<tr class="<%= cycle('even', 'odd') %>">
+		<td colspan="2">Bookings</td>
+		<% @operational_summary.period_set.each do |ps| %>
+			<td class="right"><%= ph(ps.bookings, 1) %></td>
+		<% end %>
+	</tr>
+	<tr class="<%= cycle('even', 'odd') %>" >
+		<td colspan="2">Revenue</td>
+		<% @operational_summary.period_set.each do |ps| %>
+			<td class="right"></td>
+		<% end %>
+	</tr>
+	<tr class="<%= cycle('even', 'odd') %>" >
+		<td colspan="2">Other Revenue</td>
+		<% @operational_summary.period_set.each do |ps| %>
+			<td class="right"><%= ph(ps.revenue, 1) %></td>
+		<% end %>
+	</tr>
+	<tr class="<%= cycle('even','odd') %>">
+		<% @company.user_defined_categories.where(:c_type => 1).each do |udc| %>
+			<td colspan="2"><%= udc.name %></td>
+			<% @operational_summary.period_set.each do |ps| %>
+				<td class="right"><%= ph(find_udc_item_percent_of_sales(udc, ps.expense_line_items, ps._total_revenue).abs, 1) %></td>
+			<% end %>
+		<% end %>
+	</tr>
+	<tr class="<%= cycle('even', 'odd') %>" >
+		<td colspan="2">COGS</td>
+		<% @operational_summary.period_set.each do |ps| %>
+			<td class="right"></td>
+		<% end %>
+	</tr>
+	<tr class="<%= cycle('even', 'odd') %>" >
+		<td colspan="2">Other COGS</td>
+		<% @operational_summary.period_set.each do |ps| %>
+			<td class="right"><%= ph(ps.cogs, 1) %></td>
+		<% end %>
+	</tr>
+	<tr class="<%= cycle('even','odd') %>">
+		<% @company.user_defined_categories.where(:c_type => 2).each do |udc| %>
+			<td colspan="2"><%= udc.name %></td>
+			<% @operational_summary.period_set.each do |ps| %>
+				<td class="right"><%= ph(find_udc_item_percent_of_sales(udc, ps.expense_line_items, ps._total_revenue).abs, 1) %></td>
+			<% end %>
+		<% end %>
+	</tr>
+	<tr class="<%= cycle('even', 'odd') %>" >
+		<td colspan="2">Gross Profit</td>
+		<% @operational_summary.period_set.each do |ps| %>
+			<td class="right"><%= ph(ps.gross_profit, 1) %></td>
+		<% end %>
+	</tr>
+	<tr class="<%= cycle('even', 'odd') %>" >
+		<td colspan="2">Gross Margin</td>
+		<% @operational_summary.period_set.each do |ps| %>
+			<td class="right"><%= ph(ps.gross_margin, 1) %></td>
+		<% end %>
+	</tr>
+	<tr class="<%= cycle('even', 'odd') %>" >
+		<td colspan="2">Operating Expenses</td>
+		<% @operational_summary.period_set.each do |ps| %>
+			<td class="right"></td>
+		<% end %>
+	</tr>
+	<tr class="<%= cycle('even', 'odd') %>" >
+		<td colspan="2">SGA</td>
+		<% @operational_summary.period_set.each do |ps| %>
+			<td class="right"><%= ph(ps.sga, 1) %></td>
+		<% end %>
+	</tr>
+	<tr class="<%= cycle('even', 'odd') %>" >
+		<td colspan="2">R & D</td>
+		<% @operational_summary.period_set.each do |ps| %>
+			<td class="right"><%= ph(ps.r_and_d, 1) %></td>
+		<% end %>
+	</tr>
+	<tr class="<%= cycle('even', 'odd') %>" >
+		<td colspan="2">Other Operating Expenses</td>
+		<% @operational_summary.period_set.each do |ps| %>
+			<td class="right"><%= ph(ps.operating_expense, 1) %></td>
+		<% end %>
+	</tr>
+	<tr class="<%= cycle('even','odd') %>">
+		<% @company.user_defined_categories.where(:c_type => 3).each do |udc| %>
+			<td colspan="2"><%= udc.name %></td>
+			<% @operational_summary.period_set.each do |ps| %>
+				<td class="right"><%= ph(find_udc_item_percent_of_sales(udc, ps.expense_line_items, ps._total_revenue).abs, 1) %></td>
+			<% end %>
+		<% end %>
+	</tr>
+	<tr class="<%= cycle('even', 'odd') %>" >
+		<td colspan="2">Total Operating Expenses</td>
+		<% @operational_summary.period_set.each do |ps| %>
+			<td class="right"><%= ph(ps.total_operating_expenses, 1) %></td>
+		<% end %>
+	</tr>
+	<tr class="<%= cycle('even', 'odd') %>" >
+		<td colspan="2">Operating Profit</td>
+		<% @operational_summary.period_set.each do |ps| %>
+			<td class="right"><%= ph(ps.operating_profit, 1) %></td>
+		<% end %>
+	</tr>
+	<tr class="<%= cycle('even', 'odd') %>" >
+		<td colspan="2">Operating Margin</td>
+		<% @operational_summary.period_set.each do |ps| %>
+			<td class="right"><%= ph(ps.operating_margin, 1) %></td>
+		<% end %>
+	</tr>
+	<tr class="<%= cycle('even', 'odd') %>" >
+		<td colspan="2">Other Income/Expenses</td>
+		<% @operational_summary.period_set.each do |ps| %>
+			<td class="right"></td>
+		<% end %>
+	</tr>
+	<tr class="<%= cycle('even', 'odd') %>" >
+		<td colspan="2">Interest Income</td>
+		<% @operational_summary.period_set.each do |ps| %>
+			<td class="right"><%= ph(ps.interest_income, 1) %></td>
+		<% end %>
+	</tr>
+	<tr class="<%= cycle('even', 'odd') %>" >
+		<td colspan="2">Other Income</td>
+		<% @operational_summary.period_set.each do |ps| %>
+			<td class="right"><%= ph(ps.other_income, 1) %></td>
+		<% end %>
+	</tr>
+	<tr class="<%= cycle('even', 'odd') %>" >
+		<td colspan="2">Tax Expense</td>
+		<% @operational_summary.period_set.each do |ps| %>
+			<td class="right"><%= ph(ps.tax_expense, 1) %></td>
+		<% end %>
+	</tr>	
+	<tr class="<%= cycle('even','odd') %>">
+		<% @company.user_defined_categories.where(:c_type => 4).each do |udc| %>
+			<td colspan="2"><%= udc.name %></td>
+			<% @operational_summary.period_set.each do |ps| %>
+				<td class="right"><%= ph(find_udc_item_percent_of_sales(udc, ps.expense_line_items, ps._total_revenue).abs, 1) %></td>
+			<% end %>
+		<% end %>
+	</tr>
+	<tr class="<%= cycle('even', 'odd') %>" >
+		<td colspan="2">Total Miscellaneous</td>
+		<% @operational_summary.period_set.each do |ps| %>
+			<td class="right"><%= ph(ps.total_miscellaneous, 1) %></td>
+		<% end %>
+	</tr>
+	<tr class="<%= cycle('even', 'odd') %>" >
+		<td colspan="2">Net Income</td>
+		<% @operational_summary.period_set.each do |ps| %>
+			<td class="right"><%= ph(ps.net_income, 1) %></td>
+		<% end %>
+	</tr>
+	<tr class="<%= cycle('even', 'odd') %>" >
+		<td colspan="2">Net Margin</td>
+		<% @operational_summary.period_set.each do |ps| %>
+			<td class="right"><%= ph(ps.net_margin, 1) %></td>
+		<% end %>
+	</tr>
+</table>

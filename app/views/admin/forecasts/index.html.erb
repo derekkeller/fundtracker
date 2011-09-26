@@ -1,0 +1,15 @@
+<h1>Forecast data for <%= @company %></h1>
+<% @breadcrumb_trail = raw("#{link_to(@company, edit_admin_fund_company_path(@company.fund,@company))} > Forecast data") %>
+
+<table>
+	<tr>
+		<th>Period</th>
+		<th>&nbsp;</th>
+	</tr>
+	<% @company.forecasts.each do |f| %>
+		<tr class="<%= cycle('even','odd') %>">
+			<td><%= f.period.to_s(:reg) %></td>
+			<td><%= link_to('edit', edit_admin_company_forecast_path(@company,f)) %></td>
+	<% end %>
+	
+</table>

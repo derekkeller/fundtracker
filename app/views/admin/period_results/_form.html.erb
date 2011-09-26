@@ -1,0 +1,92 @@
+<%= form.error_messages %>
+<p>
+  <%= form.label :period %><br />
+  <%= form.date_select :period, :order => [:month, :year], :include_blank => true %>
+</p>
+<p>
+  <%= form.label :bookings %><br />
+  <%= form.text_field :bookings %>
+</p>
+<span class="bold">Revenue</span>
+<p>
+  <%= form.label :revenue, "Other Revenue" %><br />
+  <%= form.text_field :revenue %>
+</p>
+<% form.fields_for :custom_cells, @revenue do |builder| %>
+	<p>
+	  <%= builder.label builder.object.user_defined_category.name %><br />
+	  <%= builder.text_field 'amount' %>
+		<%= builder.hidden_field 'user_defined_category_id' %>
+	</p>
+<% end %>
+<span class="bold">COGS</span>
+<p>
+  <%= form.label :cogs %><br />
+  <%= form.text_field :cogs %>
+</p>
+<% form.fields_for :custom_cells, @cogs do |builder| %>
+	<p>
+	  <%= builder.label builder.object.user_defined_category.name %><br />
+	  <%= builder.text_field 'amount' %>
+		<%= builder.hidden_field 'user_defined_category_id' %>
+	</p>
+<% end %>
+<span class="bold">Operating Expenses</span>
+<p>
+  <%= form.label :operating_expenses, 'Other Operating Expenses' %><br />
+  <%= form.text_field :operating_expenses %>
+</p>
+<p>
+  <%= form.label :sg_and_a %><br />
+  <%= form.text_field :sg_and_a %>
+</p>
+<p>
+  <%= form.label :r_and_d %><br />
+  <%= form.text_field :r_and_d %>
+</p>
+<% form.fields_for :custom_cells, @operating_exp do |builder| %>
+	<p>
+	  <%= builder.label builder.object.user_defined_category.name %><br />
+	  <%= builder.text_field 'amount' %>
+		<%= builder.hidden_field 'user_defined_category_id' %>
+	</p>
+<% end %>
+<span class="bold">Other Rev/Exp</span>
+<p>
+  <%= form.label :depreciation %><br />
+  <%= form.text_field :depreciation %>
+</p>
+<p>
+  <%= form.label :amortization %><br />
+  <%= form.text_field :amortization %>
+</p>
+<p>
+  <%= form.label :interest_income %><br />
+  <%= form.text_field :interest_income %>
+</p>
+<p>
+  <%= form.label :interest_expense %><br />
+  <%= form.text_field :interest_expense %>
+</p>
+<p>
+  <%= form.label :other_income %><br />
+  <%= form.text_field :other_income %>
+</p>
+<p>
+  <%= form.label :other_expense %><br />
+  <%= form.text_field :other_expense %>
+</p>	
+<p>
+  <%= form.label :tax_expense %><br />
+  <%= form.text_field :tax_expense %>
+</p>
+<% form.fields_for :custom_cells, @other do |builder| %>
+	<p>
+	  <%= builder.label builder.object.user_defined_category.name %><br />
+	  <%= builder.text_field 'amount' %>
+		<%= builder.hidden_field 'user_defined_category_id' %>
+	</p>
+<% end %>
+<p>
+	<%= form.submit :save %>
+</p>

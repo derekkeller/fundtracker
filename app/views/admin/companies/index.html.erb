@@ -1,0 +1,23 @@
+<h2>Companies</h2>
+<table style="width:1000px">
+	<tr class="left" style="border-bottom:1px solid">
+		<th class="column_width">Company</th>
+		<th class="column_width">Ownership %</th>
+		<th class="column_width">TTM Revenue</th>
+		<th class="column_width">TTM Revenue Growth %</th>
+		<th class="column_width">Rev/Employee</th>
+		<th class="column_width">Exp/Employee</th>
+		<th class="column_width">Cash Runway</th>
+	</tr>
+	<% @companies.each do |company| %>
+	<tr class="<%= cycle('odd','even') %>">
+		<td><%= link_to company.name, admin_company_path(company) %></td>
+		<td class="right"><%= ph(company.ownership_percentage) %></td>
+		<td class="right"><%= nh(company.ttm_revenue) %></td>
+		<td class="right"><%= %></td>
+		<td class="right"><%= %></td>
+		<td class="right"><%= %></td>
+		<td class="right"><%= nh(company.cash_runway) %></td>
+	</tr>
+	<% end %>
+</table>

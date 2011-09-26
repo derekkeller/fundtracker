@@ -1,0 +1,21 @@
+<table style="text-align:left;width:500px">
+	<tr>
+		<th>Organization</th>
+		<th>Funds</th>
+		<th>Companies</th>
+    <th></th>
+	</tr>
+	<% @organizations.each do |organization| %>
+	<tr>
+		<td><%= link_to organization.name, admin_organization_path(organization) %></td>
+		<td><%= organization.funds.count %></td>
+		<td><%= organization.companies.count %></td>
+    <td><%= link_to 'Edit', edit_admin_organization_path(organization) %> | 
+        <%= link_to 'Destroy', admin_organization_path(organization), :confirm => 'Are you sure?', :method => :delete %></td>
+	</tr>
+	<% end %>
+</table>
+
+<div class='back_footer'>
+	<%= link_to 'Add Organization', new_admin_organization_path %>
+</div>

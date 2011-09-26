@@ -1,0 +1,19 @@
+<%= form.error_messages %>
+
+<p>
+  <%= form.label :name %><br />
+  <%= form.text_field :name %>
+</p>
+
+<p>
+  <%= form.label :c_type %><br />
+  <%= form.select :c_type, UserDefinedCategory::TYPES.invert.to_a.sort, {:include_blank => true} %>
+</p>
+
+<p id="sign_p">
+	<%= form.label :sign %><br />
+	<%= form.select :sign, UserDefinedCategory::SIGNS.invert.to_a.sort, :include_blank => true %>
+</p>
+<p>
+	<%= form.submit :save %>
+</p>

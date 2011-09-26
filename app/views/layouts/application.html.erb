@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>FundTracker</title>
+	  <%= stylesheet_link_tag :all %>
+	  <%= javascript_include_tag :defaults %>
+	  <%= csrf_meta_tag %>
+	</head>
+	<body id="application_body">
+		<div class="log_out_link">
+			<% if @user.is_admin? %>
+				<%= link_to 'Admin', admin_organizations_path, :id => 'logout_regular' %>
+			<% end unless @user.nil? %>
+			<%= link_to 'Log out', log_out_path, :id => 'logout_regular' %><br />
+		</div>
+		<div id="bread_crumb_detail">
+			<%= @breadcrumb_trail %>
+		</div>
+		<div id="nav"> 
+			<ul>
+				<li class="<%= @dashboard_class %>"><%= link_to 'DASHBOARD', root_url %></li>
+				<li class="<%= @portfolio_class %>"><%= link_to 'PORTFOLIO', companies_path %></li>
+				<li class="<%= @fund_class %>"><%= link_to "FUND", funds_path %></li>
+				<li class="<%= @profile_class %>"><%= link_to "PROFILE", user_edit_profile_path(current_user.id) %></li>
+				<% if current_user.role_id == 1 || current_user.is_admin? %>
+					<li class="<%= @users_class %>"><%= link_to "USERS", users_path %></li>
+				<% end %>
+			</ul>
+		</div>
+		<div id="sub_nav_filter">
+			<ul>
+				<% if true %>
+					<li>Fund (+ Drop Down [all funds])</li>
+					<li>Company (+ Drop Down [all companies in that fund])</li>
+          <li>- - - - - - - - - - - - - - - - - - - - - - - - - - - </li>
+          <li><%= link_to "Summary", companies_path %></li>
+					<li><%= link_to "Documents", documents_path %></li>
+					<li><%= link_to "Financials", period_results_path %></li>
+					<li><%= link_to "Operational Metrics", operationals_path %></li>
+					<li><%= link_to "Series", series_path %></li>
+				<% elsif controller_name == 'users' %>
+					<li><%= link_to "ADD USER", new_user_path %></li>
+				<% end %>
+			</ul>
+		</div>    
+		<div id="sub_nav">
+			<ul>
+				<% if true %>
+					<li>Period (+ Drop Down [annual, quarter, month])</li>
+					<li>View (+ Drop Down [actual, forecast, variance, growth, % sales ])
+          <li>- - - - - - - -</li>
+          <li>Add (+ Drop Down [user, fund, company, investment series, financials, document])</li>
+				<% elsif controller_name == 'users' %>
+					<li><%= link_to "ADD USER", new_user_path %></li>
+				<% end %>
+			</ul>
+		</div>
+		<% unless @company.nil? %>
+		<div id="company_sub_nav" style="<%= @company_sub_nav_styl %>">
+			<div id="company_name">
+				<%= @company.name.upcase unless @company.nil? %>
+			</div>
+			<ul>
+					<li><%= link_to "SUMMARY", company_path(@company) %></li>
+					<li><%= link_to "DOCUMENTS", company_documents_path(@company) %></li>
+					<li><%= link_to "FINANCIAL", company_period_results_path(@company) %></li>
+					<li><%= link_to "OPERATIONAL", company_operationals_path(@company) %></li>
+					<li><%= link_to "SERIES", company_series_index_path(@company) %></li>
+			</ul>
+		</div>
+		<% end %>
+		<% if controller_name == 'companies' %>
+			<%= render 'deal_status' %>
+		<% end %>
+		<% if controller_name == 'operationals' %>
+			<%= render 'operational_sub_nav' %>
+		<% elsif controller_name == 'period_results' %>
+			<%= render 'period_results_sub_nav' %>
+		<% end %>
+		<div id="content">
+			<p class="notice" style="display: none;">
+				<%= flash[:notice] -%>
+			</p>
+			<p class="alert" style="display: none;">
+				<%= flash[:alert] -%>
+			</p>
+			<%= yield %>
+		</div>
+	</body>
+</html>

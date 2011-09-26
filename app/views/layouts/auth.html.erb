@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>Fund Tracker Sign in</title>
+	  <%= stylesheet_link_tag :all %>
+	  <%= javascript_include_tag :defaults %>
+	  <%= csrf_meta_tag %>
+	</head>
+	<body id="log_in_body">
+		<%= image_tag('hwy12_logo_on.png') %>
+		<div id="log_in_container">
+			<p class="notice" style="display: none;">
+				<%= flash[:notice] -%>
+			</p>
+			<p class="alert" style="display: none;">
+				<%= flash[:alert] -%>
+			</p>
+			<%= yield %>
+		</div>
+		
+	</body>
+</html>
