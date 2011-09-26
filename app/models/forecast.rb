@@ -1,5 +1,5 @@
 class Forecast < ActiveRecord::Base
-  attr_accessible :bookings, :revenue, :cogs, :operating_expenses, :sg_and_a, :r_and_d, :depreciation, :amortization, :interest_income, :interest_expense, :other_income, :other_expense, :tax_expense, :period, :custom_cells_attributes
+  # attr_accessible :bookings, :revenue, :cogs, :operating_expenses, :sg_and_a, :r_and_d, :depreciation, :amortization, :interest_income, :interest_expense, :other_income, :other_expense, :tax_expense, :period, :custom_cells_attributes
   
   validates_presence_of :period, :company_id
   

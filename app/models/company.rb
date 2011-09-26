@@ -1,5 +1,5 @@
 class Company < ActiveRecord::Base
-  attr_accessible :fund_id, :name, :founded, :industry_id, :description, :reserves, :syndicate, :status_id, :status_date, :exit_amount, :fund_return, :notes, :active
+  # attr_accessible :fund_id, :name, :founded, :industry_id, :description, :reserves, :syndicate, :status_id, :status_date, :exit_amount, :fund_return, :notes, :active
   
   validates_presence_of :fund_id, :name, :industry_id
   
